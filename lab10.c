@@ -9,7 +9,7 @@
 
 static const unsigned char u8_bandip[4] = {192u, 168u, 43u, 138u};
 #define banned_ip (*(unsigned int *)u8_bandip)
-static int bandport = 44444;
+static int bandport = htons(44444);
 
 
 static unsigned int nf_hook_in(
@@ -115,4 +115,4 @@ module_exit(exit_lab10);
 MODULE_LICENSE("GPL");
 MODULE_AUTHOR("Qing-LKY");
 MODULE_DESCRIPTION("Lab10: Net-filter");
-MODULE_VERSION("0.1.0");
+MODULE_VERSION("0.1.1");
