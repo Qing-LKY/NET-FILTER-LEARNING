@@ -78,16 +78,14 @@ static unsigned int nf_hook_out(
 }
 
 
-static struct nf_hook_ops nfin = 
-{
+static struct nf_hook_ops nfin = {
     .hook = nf_hook_in,
     .hooknum = NF_INET_LOCAL_IN,
     .pf = PF_INET,
     .priority = NF_IP_PRI_FIRST
 };
 
-static struct nf_hook_ops nfout=
-{
+static struct nf_hook_ops nfout = {
     .hook = nf_hook_out,
     .hooknum = NF_INET_LOCAL_OUT,
     .pf = PF_INET,
