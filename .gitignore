@@ -1,0 +1,19 @@
+# c
+*.o
+*.out
+
+# module
+*.mod
+*.mod.o
+*.mod.c
+*.ko
+*.order
+*.symvers
+*.cmd
+
+# vscode
+compile_commands.json
+.vscode/
+
+# clangd
+.clangd/
