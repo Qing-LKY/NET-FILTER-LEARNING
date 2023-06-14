@@ -10,6 +10,7 @@
 *.order
 *.symvers
 *.cmd
+*.o.d
 
 # vscode
 compile_commands.json
