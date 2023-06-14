@@ -27,14 +27,14 @@ static unsigned int nf_hook_in(
     switch (iph->protocol) {
         case IPPROTO_TCP: {
             if (tcp_hdr(sk)->dest == bandport) {
-                printk(KERN_NOTICE "Banned a tcp packet (recv) with port %d!\n", bandport);
+                printk(KERN_NOTICE "Banned a tcp packet (recv) with port %d!\n", ntohs(bandport));
                 return NF_DROP;
             }
             break;
         }
         case IPPROTO_UDP: {
             if (udp_hdr(sk)->dest == bandport) {
-                printk(KERN_NOTICE "Banned a udp packet (recv) with port %d!\n", bandport);
+                printk(KERN_NOTICE "Banned a udp packet (recv) with port %d!\n", ntohs(bandport));
                 return NF_DROP;
             }
             break;
@@ -52,14 +52,14 @@ static unsigned int nf_hook_out(
         // 禁止特定端口的数据发送
         case IPPROTO_TCP: {
             if (tcp_hdr(sk)->source == bandport) {
-                printk(KERN_NOTICE "Banned a tcp packet (send) with port %d!\n", bandport);
+                printk(KERN_NOTICE "Banned a tcp packet (send) with port %d!\n", ntohs(bandport));
                 return NF_DROP;
             }
             break;
         }
         case IPPROTO_UDP: {
             if (udp_hdr(sk)->source == bandport) {
-                printk(KERN_NOTICE "Banned a udp packet (send) with port %d!\n", bandport);
+                printk(KERN_NOTICE "Banned a udp packet (send) with port %d!\n", ntohs(bandport));
                 return NF_DROP;
             }
             break;
